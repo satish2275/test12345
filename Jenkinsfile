@@ -14,12 +14,12 @@ pipeline {
       steps {
           sh 'mvn package'
          
-         when {
+//         when {
            expression {
               currentBuild.result == NULL || currentBuild.result == "SUCCESS"
     
                     }                
-             }
+             } //
 
           echo "Build URL is ${env.BUILD_URL}"
    }
