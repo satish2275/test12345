@@ -13,8 +13,17 @@ pipeline {
     stage ('Build') {
       steps {
           sh 'mvn package'
-      }
+         
+         when {
+           expression {
+              currentBuild.result == NULL || currentBuild.result == "SUCCESS"
+    
+                    }                
+             }
+
+          echo "Build URL is ${env.BUILD_URL}"
    }
+}
 
   }
 }
