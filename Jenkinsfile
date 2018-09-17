@@ -13,17 +13,9 @@ pipeline {
     stage ('Build') {
       steps {
           sh 'mvn package'
-         
-//         when {
-           expression {
-              currentBuild.result == NULL || currentBuild.result == "SUCCESS"
-    
-                    }                
-             } //
+          echo "Build location is : ${env.BUILD_URL}"
+             }      
 
-          echo "Build URL is ${env.BUILD_URL}"
-   }
+         }     
 }
-
-  }
 }
