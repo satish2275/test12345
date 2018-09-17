@@ -7,6 +7,12 @@ pipeline {
           git 'https://github.com/satish2275/mavenproject.git'
             }
         }
+
+    stage ('Build') {
+      steps {
+          sh 'mvn package'
+      }
    }
 
+  }
 }
